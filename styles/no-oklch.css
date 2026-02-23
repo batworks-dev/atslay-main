@@ -1,0 +1,31 @@
+/* =========================
+   PDF SAFE MODE (no OKLCH)
+   ========================= */
+
+/* Ensure PDF rendering uses solid RGB/HEX colors */
+html[data-pdf-export],
+html[data-pdf-export] body,
+html[data-pdf-export] * {
+  --tw-bg-opacity: 1 !important;
+  --tw-text-opacity: 1 !important;
+  color-scheme: dark !important;
+
+  /* Replace OKLCH colors with safe RGB equivalents */
+  --background: #0b0e17 !important;
+  --foreground: #ffffff !important;
+  --card: #141414 !important;
+  --card-foreground: #ffffff !important;
+  --accent: #3b82f6 !important;
+  --border: #2a2a2a !important;
+  --input: #1e1e1e !important;
+  --ring: #3b82f6 !important;
+
+  /* Disable OKLCH animations */
+  animation: none !important;
+  transition: none !important;
+  background: none !important;
+  background-color: transparent !important;
+  border-color: #2a2a2a !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
