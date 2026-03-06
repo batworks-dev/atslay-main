@@ -226,7 +226,7 @@ export default function ProductDetailsClient({ product }: ProductDetailsClientPr
               <div className="flex gap-2">
                 {/* Live Demo Button */}
                 {product.live_demo_link ? (
-                  <a href={product.live_demo_link} target="_blank" rel="noopener noreferrer" className="flex-1">
+                  <a href={product.live_demo_link.startsWith('http') ? product.live_demo_link : `https://${product.live_demo_link}`} target="_blank" rel="noopener noreferrer" className="flex-1">
                     <Button
                       variant="outline"
                       size="sm"
