@@ -1,83 +1,82 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated to match the hero section's black background with blue/purple accents */
-  --background: oklch(0 0 0); /* Pure black */
-  --foreground: oklch(1 0 0); /* Pure white */
-  --card: oklch(0.1 0.02 230); /* Dark blue-gray */
-  --card-foreground: oklch(1 0 0);
-  --popover: oklch(0.15 0.03 230);
-  --popover-foreground: oklch(1 0 0);
-  --primary: oklch(1 0 0); /* White for primary buttons */
-  --primary-foreground: oklch(0 0 0); /* Black text on white buttons */
-  --secondary: oklch(1 0 0 / 0.1); /* Glassmorphism white */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.05 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.05 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.05 0 0);
+  --primary: #C8F54A;
+  --primary-foreground: oklch(0.05 0 0);
+  --secondary: #7B6FFF;
   --secondary-foreground: oklch(1 0 0);
-  --muted: oklch(1 0 0 / 0.1); /* White with opacity */
-  --muted-foreground: oklch(1 0 0 / 0.7);
-  --accent: oklch(0.6 0.2 250); /* Blue accent */
-  --accent-foreground: oklch(1 0 0);
+  --muted: oklch(0.95 0 0);
+  --muted-foreground: oklch(0.5 0 0);
+  --accent: #C8F54A;
+  --accent-foreground: oklch(0.05 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(1 0 0);
-  --border: oklch(1 0 0 / 0.2); /* White borders with opacity */
-  --input: oklch(1 0 0 / 0.1); /* Glassmorphism input */
-  --ring: oklch(1 0 0 / 0.3);
-  --chart-1: oklch(0.6 0.2 250); /* Blue */
-  --chart-2: oklch(0.5 0.25 270); /* Purple */
-  --chart-3: oklch(0.7 0.15 240); /* Light blue */
-  --chart-4: oklch(0.8 0.1 220); /* Very light blue */
-  --chart-5: oklch(0.4 0.3 260); /* Deep purple */
-  --radius: 0.75rem;
-  --sidebar: oklch(0.1 0.02 230);
-  --sidebar-foreground: oklch(1 0 0);
-  --sidebar-primary: oklch(1 0 0);
-  --sidebar-primary-foreground: oklch(0 0 0);
-  --sidebar-accent: oklch(1 0 0 / 0.1);
+  --border: oklch(0.9 0 0);
+  --input: oklch(0.95 0 0);
+  --ring: #C8F54A;
+  --chart-1: #C8F54A;
+  --chart-2: #7B6FFF;
+  --chart-3: oklch(0.6 0.15 200);
+  --chart-4: oklch(0.7 0.12 280);
+  --chart-5: oklch(0.8 0.1 50);
+  --radius: 0.625rem;
+  --sidebar: oklch(1 0 0);
+  --sidebar-foreground: oklch(0.05 0 0);
+  --sidebar-primary: #C8F54A;
+  --sidebar-primary-foreground: oklch(0.05 0 0);
+  --sidebar-accent: #7B6FFF;
   --sidebar-accent-foreground: oklch(1 0 0);
-  --sidebar-border: oklch(1 0 0 / 0.2);
-  --sidebar-ring: oklch(1 0 0 / 0.3);
+  --sidebar-border: oklch(0.9 0 0);
+  --sidebar-ring: #C8F54A;
 }
 
 .dark {
-  --background: oklch(0 0 0);
-  --foreground: oklch(1 0 0);
-  --card: oklch(0.08 0.02 230);
-  --card-foreground: oklch(1 0 0);
-  --popover: oklch(0.12 0.03 230);
-  --popover-foreground: oklch(1 0 0);
-  --primary: oklch(1 0 0);
-  --primary-foreground: oklch(0 0 0);
-  --secondary: oklch(1 0 0 / 0.15);
-  --secondary-foreground: oklch(1 0 0);
-  --muted: oklch(1 0 0 / 0.15);
-  --muted-foreground: oklch(1 0 0 / 0.6);
-  --accent: oklch(0.65 0.25 270);
-  --accent-foreground: oklch(1 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(1 0 0);
-  --border: oklch(1 0 0 / 0.25);
-  --input: oklch(1 0 0 / 0.15);
-  --ring: oklch(1 0 0 / 0.4);
-  --chart-1: oklch(0.65 0.25 270);
-  --chart-2: oklch(0.5 0.3 250);
-  --chart-3: oklch(0.7 0.2 240);
-  --chart-4: oklch(0.8 0.15 220);
-  --chart-5: oklch(0.45 0.35 260);
-  --sidebar: oklch(0.08 0.02 230);
-  --sidebar-foreground: oklch(1 0 0);
-  --sidebar-primary: oklch(1 0 0);
-  --sidebar-primary-foreground: oklch(0 0 0);
-  --sidebar-accent: oklch(1 0 0 / 0.15);
-  --sidebar-accent-foreground: oklch(1 0 0);
-  --sidebar-border: oklch(1 0 0 / 0.25);
-  --sidebar-ring: oklch(1 0 0 / 0.4);
+  --background: #0B0B0B;
+  --foreground: #EDEADD;
+  --card: #111111;
+  --card-foreground: #EDEADD;
+  --popover: #111111;
+  --popover-foreground: #EDEADD;
+  --primary: #C8F54A;
+  --primary-foreground: #0B0B0B;
+  --secondary: #7B6FFF;
+  --secondary-foreground: #EDEADD;
+  --muted: #2a2a2a;
+  --muted-foreground: #999999;
+  --accent: #C8F54A;
+  --accent-foreground: #0B0B0B;
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: #EDEADD;
+  --border: #222222;
+  --input: #1a1a1a;
+  --ring: #C8F54A;
+  --chart-1: #C8F54A;
+  --chart-2: #7B6FFF;
+  --chart-3: #00d4ff;
+  --chart-4: #ff0080;
+  --chart-5: #ffa500;
+  --sidebar: #111111;
+  --sidebar-foreground: #EDEADD;
+  --sidebar-primary: #C8F54A;
+  --sidebar-primary-foreground: #0B0B0B;
+  --sidebar-accent: #7B6FFF;
+  --sidebar-accent-foreground: #EDEADD;
+  --sidebar-border: #222222;
+  --sidebar-ring: #C8F54A;
 }
 
 @theme inline {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: 'Geist', 'Geist Fallback';
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -121,121 +120,20 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground;
   }
 }
 
-/* ================== ANIMATIONS ================== */
-@keyframes spotlight {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100vw); }
-}
-
-@keyframes glow {
-  0%, 100% { box-shadow: 0 0 20px oklch(0.6 0.2 250 / 0.4); }
-  50% { box-shadow: 0 0 40px oklch(0.6 0.2 250 / 0.7); }
-}
-
-@keyframes pulse-blue {
-  0%, 100% { box-shadow: 0 0 0 0 oklch(0.6 0.2 250 / 0.7); }
-  70% { box-shadow: 0 0 0 10px oklch(0.6 0.2 250 / 0); }
-}
-
-@keyframes lightning {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.8; }
-}
-
-.spotlight-animation { animation: spotlight 8s ease-in-out infinite; }
-.glow-effect { animation: glow 2s ease-in-out infinite; }
-.pulse-blue { animation: pulse-blue 2s infinite; }
-.lightning-effect { animation: lightning 1.6s ease-in-out infinite; }
-
-/* ================== GLASSMORPHISM ================== */
-.glassmorphism {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: var(--radius-lg);
-  transition: all 0.3s ease;
-}
-
-.glassmorphism:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-/* ================== GRADIENT BACKGROUNDS ================== */
-.gradient-blue {
-  background: linear-gradient(135deg, 
-    oklch(0.6 0.2 250 / 0.2), 
-    oklch(0.5 0.25 270 / 0.1), 
-    oklch(0.4 0.3 260 / 0.05)
-  );
-  background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
-}
-
-.gradient-blue-dark {
-  background: linear-gradient(135deg, 
-    oklch(0.3 0.1 240 / 0.3), 
-    oklch(0.4 0.15 250 / 0.2), 
-    oklch(0.5 0.2 260 / 0.1)
-  );
-  background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
-}
-
-/* Hero section specific gradients */
-.hero-gradient {
-  background: radial-gradient(
-    ellipse at center,
-    oklch(0.6 0.2 250 / 0.2) 0%,
-    oklch(0.5 0.25 270 / 0.1) 30%,
-    oklch(0 0 0) 70%
-  );
-}
-
-.planet-gradient {
-  background: radial-gradient(
-    circle at 25% 90%,
-    oklch(0.3 0.1 240) 15%,
-    oklch(0 0 0 / 0.87) 70%,
-    oklch(0 0 0 / 0.93) 100%
-  );
-}
-
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* ================== CUSTOM UTILITIES ================== */
-.backdrop-blur-glass {
-  backdrop-filter: blur(12px);
-}
-
-.border-glass {
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.bg-glass {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.text-shadow {
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-/* Smooth transitions for interactive elements */
-.transition-smooth {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Focus states matching the design */
-.focus-glass:focus {
-  outline: none;
-  ring: 2px solid rgba(255, 255, 255, 0.3);
-  background: rgba(255, 255, 255, 0.15);
+@layer utilities {
+  .glow-accent {
+    box-shadow: 0 0 20px rgba(200, 245, 74, 0.5);
+  }
+  
+  .glow-secondary {
+    box-shadow: 0 0 20px rgba(123, 111, 255, 0.5);
+  }
+  
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-secondary;
+  }
 }

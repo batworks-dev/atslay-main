@@ -1,205 +1,160 @@
-"use client"
+'use client';
 
-import { Instagram, Twitter, Linkedin, Mail } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { Github, Linkedin, Twitter } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ATSlayLogo } from './atslay-logo';
 
-export function Footer() {
-  const pathname = usePathname()
+export default function Footer() {
+  const footerLinks = [
+    {
+      title: 'Product',
+      links: [
+        { label: 'Features', href: '#features' },
+        { label: 'Pricing', href: '#pricing' },
+        { label: 'How It Works', href: '#how' },
+      ],
+    },
+    {
+      title: 'Company',
+      links: [
+        { label: 'About', href: '#about' },
+        { label: 'Blog', href: '#blog' },
+        { label: 'Careers', href: '#careers' },
+      ],
+    },
+    {
+      title: 'Legal',
+      links: [
+        { label: 'Privacy', href: '#privacy' },
+        { label: 'Terms', href: '#terms' },
+        { label: 'Contact', href: '#contact' },
+      ],
+    },
+  ];
+
+  const socialLinks = [
+    { icon: Twitter, href: '#twitter', label: 'Twitter' },
+    { icon: Linkedin, href: '#linkedin', label: 'LinkedIn' },
+    { icon: Github, href: '#github', label: 'GitHub' },
+  ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 },
+    },
+  };
 
   return (
-    <footer className="relative py-16 px-4 sm:px-6 lg:px-8 overflow-hidden bg-[#0f1b34]">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 z-0">
-        {/* Gradient glow effect */}
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl"></div>
-        
-        {/* Subtle grid pattern */}
-        <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+    <footer className="relative bg-background border-t border-border/50 overflow-hidden">
+      {/* Background accent */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -bottom-96 right-1/4 w-96 h-96 rounded-full blur-3xl opacity-10" style={{ background: 'radial-gradient(circle, rgba(200, 245, 74, 0.2) 0%, transparent 70%)' }} />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-          {/* Brand Section */}
-          <div className="md:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
-              <Image
-                src="/logo.png"
-                alt="Batworks Logo"
-                width={150}
-                height={40}
-              />
-            </div>
-            <p className="text-white/60 max-w-md leading-relaxed mb-6">
-              The premier marketplace for premium web applications, landing pages, PHP scripts, and ML algorithms. Build
-              faster, launch sooner.
-            </p>
-            
-            {/* Social Icons */}
-            <div className="flex space-x-3">
-              <a 
-                href="https://www.instagram.com/batworks.dev/" 
-                className="group w-10 h-10 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 flex items-center justify-center transition-all duration-300"
-              >
-                <Instagram className="h-5 w-5 text-white/60 group-hover:text-white transition-colors" />
-              </a>
-          
-              <a 
-                href="https://www.linkedin.com/company/batworksdev" 
-                className="group w-10 h-10 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 flex items-center justify-center transition-all duration-300"
-              >
-                <Linkedin className="h-5 w-5 text-white/60 group-hover:text-white transition-colors" />
-              </a>
-              <a 
-  href="mailto:admin@batworks.in"
-  className="group w-10 h-10 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 flex items-center justify-center transition-all duration-300"
->
-  <Mail className="h-5 w-5 text-white/60 group-hover:text-white transition-colors" />
-</a>
+      <div className="relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <motion.div
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {/* Brand */}
+            <motion.div variants={itemVariants} className="md:col-span-1">
+              <div className="mb-4">
+                <ATSlayLogo variant="dark" size="sm" />
+              </div>
+              <p className="text-sm text-muted-foreground">
+                Beat every ATS. Get the bag. Your resume, fully optimized.
+              </p>
+            </motion.div>
 
-            </div>
-          </div>
+            {/* Links */}
+            {footerLinks.map((section, index) => (
+              <motion.div key={index} variants={itemVariants} className="col-span-1">
+                <h4 className="font-semibold text-foreground mb-4 text-sm">{section.title}</h4>
+                <ul className="space-y-2">
+                  {section.links.map((link, linkIndex) => (
+                    <li key={linkIndex}>
+                      <a
+                        href={link.href}
+                        className="text-sm text-muted-foreground hover:text-accent transition-colors"
+                      >
+                        {link.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </motion.div>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-lg font-semibold text-white mb-4 relative inline-block">
-              Quick Links
-              <span className="absolute -bottom-1 left-0 w-12 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600"></span>
-            </h3>
-            <ul className="space-y-3 mt-6">
-              <li>
-                <Link 
-                  href="/marketplace" 
-                  className="text-white/60 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block group"
-                >
-                  <span className="relative">
-                    Marketplace
-                    <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-gradient-to-r from-blue-500 to-purple-600 transition-all duration-300 group-hover:w-full"></span>
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/about" 
-                  className="text-white/60 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block group"
-                >
-                  <span className="relative">
-                    About
-                    <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-gradient-to-r from-blue-500 to-purple-600 transition-all duration-300 group-hover:w-full"></span>
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/careers" 
-                  className="text-white/60 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block group"
-                >
-                  <span className="relative">
-                    Careers
-                    <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-gradient-to-r from-blue-500 to-purple-600 transition-all duration-300 group-hover:w-full"></span>
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/contact" 
-                  className="text-white/60 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block group"
-                >
-                  <span className="relative">
-                    Contact
-                    <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-gradient-to-r from-blue-500 to-purple-600 transition-all duration-300 group-hover:w-full"></span>
-                  </span>
-                </Link>
-              </li>
-            </ul>
-          </div>
+          {/* Divider */}
+          <motion.div
+            className="h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent mb-8"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            style={{ originX: 0 }}
+          />
 
-          {/* Legal */}
-          <div>
-            <h3 className="text-lg font-semibold text-white mb-4 relative inline-block">
-              Legal
-              <span className="absolute -bottom-1 left-0 w-12 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600"></span>
-            </h3>
-            <ul className="space-y-3 mt-6">
-              <li>
-                <Link 
-                  href="/privacy" 
-                  className={`transition-all duration-300 hover:translate-x-1 inline-block group ${
-                    pathname === '/privacy' ? 'text-white' : 'text-white/60 hover:text-white'
-                  }`}
-                >
-                  <span className="relative">
-                    Privacy Policy
-                    <span className={`absolute -bottom-0.5 left-0 h-px bg-gradient-to-r from-blue-500 to-purple-600 transition-all duration-300 ${
-                      pathname === '/privacy' ? 'w-full' : 'w-0 group-hover:w-full'
-                    }`}></span>
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/terms" 
-                  className={`transition-all duration-300 hover:translate-x-1 inline-block group ${
-                    pathname === '/terms' ? 'text-white' : 'text-white/60 hover:text-white'
-                  }`}
-                >
-                  <span className="relative">
-                    Terms of Service
-                    <span className={`absolute -bottom-0.5 left-0 h-px bg-gradient-to-r from-blue-500 to-purple-600 transition-all duration-300 ${
-                      pathname === '/terms' ? 'w-full' : 'w-0 group-hover:w-full'
-                    }`}></span>
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/refund" 
-                  className={`transition-all duration-300 hover:translate-x-1 inline-block group ${
-                    pathname === '/refund' ? 'text-white' : 'text-white/60 hover:text-white'
-                  }`}
-                >
-                  <span className="relative">
-                    Refund Policy
-                    <span className={`absolute -bottom-0.5 left-0 h-px bg-gradient-to-r from-blue-500 to-purple-600 transition-all duration-300 ${
-                      pathname === '/refund' ? 'w-full' : 'w-0 group-hover:w-full'
-                    }`}></span>
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/shipping" 
-                  className={`transition-all duration-300 hover:translate-x-1 inline-block group ${
-                    pathname === '/shipping' ? 'text-white' : 'text-white/60 hover:text-white'
-                  }`}
-                >
-                  <span className="relative">
-                    Shipping Policy
-                    <span className={`absolute -bottom-0.5 left-0 h-px bg-gradient-to-r from-blue-500 to-purple-600 transition-all duration-300 ${
-                      pathname === '/shipping' ? 'w-full' : 'w-0 group-hover:w-full'
-                    }`}></span>
-                  </span>
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
+          {/* Bottom Section */}
+          <motion.div
+            className="flex flex-col md:flex-row items-center justify-between gap-6"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {/* Copyright */}
+            <motion.p variants={itemVariants} className="text-sm text-muted-foreground">
+              © 2026 BATWORKS Enterprise Product. All rights reserved.
+            </motion.p>
 
-        {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10">
-          <p className="text-white/50 mb-4 md:mb-0 text-sm">
-            © 2025 Batworks. All rights reserved.
-          </p>
-
-          <div className="flex items-center space-x-2 text-white/50 text-sm">
-            <span>Made with</span>
-            <span className="text-red-400 animate-pulse">♥</span>
-            <span>for developers</span>
-          </div>
+            {/* Social Links */}
+            <motion.div
+              className="flex items-center gap-4"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              {socialLinks.map((link, index) => {
+                const Icon = link.icon;
+                return (
+                  <motion.a
+                    key={index}
+                    href={link.href}
+                    aria-label={link.label}
+                    variants={itemVariants}
+                    className="w-10 h-10 rounded-lg bg-card border border-border/50 flex items-center justify-center text-muted-foreground hover:text-accent hover:border-accent/50 transition-all duration-300"
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Icon className="w-5 h-5" />
+                  </motion.a>
+                );
+              })}
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </footer>
-  )
+  );
 }
